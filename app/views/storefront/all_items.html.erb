@@ -1,0 +1,47 @@
+<h1>Welcome to Tech Central Superstore</h1>
+<p>Give us your money!</p>
+
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-4">
+      <div class="well">
+        <% if product.image.url.nil? == false %>
+          <p><%= image_tag product.image.url(:show) %></p>
+        <% end %>
+        <h3><%= link_to product.name, product %></h3>
+        <p><%= number_to_currency product.price %></p>
+        <p>
+          <a href="#" data-toggle="modal" data-target="#myModal_<%= product.id %>">
+            <span class="glyphicon glyphicon-plus"></span> Quick Info
+          </a>
+        </p>
+      </div>
+    </div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal_<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel"><%= product.name %></h4>
+		        <p><%= image_tag product.image.url(:show) %></p>
+		      </div>
+		      <div class="modal-body">
+		        <p><%= product.description %></p>
+		        <p>Price: <%= number_to_currency product.price %></p>
+		        <p>Made By: <%= product.brand %></p>
+		        <p>Quantity in Stock: <%= product.quantity %></p>
+		        <p>Rating: <%= product.rating %></p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Modal End -->
+
+  <% end %>
+</div>
