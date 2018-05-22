@@ -25,7 +25,14 @@
  $c5: #A8E0FF;
 
 body {
-	background: #A8E0FF;
+	background: $c1;
+	color: white;
+}
+
+.jumbotron {
+	color: $c1;
+	background-color: $c5;
+	border-color: $c4;
 }
 
 .product-well {
@@ -33,7 +40,7 @@ body {
 }
 
 .well {
-	background-color: $c1;
+	background-color: $c3;
 	color: white;
 	border-color: $c4;
 }
@@ -49,4 +56,16 @@ body {
 .navbar {
 	background-color: $c3;
 	border-color: $c4;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-nav li a {
+    color: white;
+}
+
+.dropdown-menu {
+	background-color: $c3;
 }
