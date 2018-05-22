@@ -17,3 +17,30 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+
+body {
+	background: #A8E0FF;
+}
+
+.product-well {
+	height: 375px;
+}
+
+.well {
+	background-color: #3E517A;
+	color: white;
+	border-color: #B08EA2;
+}
+
+.well a {
+	color: white;
+}
+
+.well a:hover {
+	background-color: #3E517A;
+}
+
+.navbar {
+	background-color: #62A8AC;
+	border-color: #B08EA2;
+}
