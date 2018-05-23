@@ -1,20 +1,27 @@
 <div class="container">
-	<h2>My Cart</h2>
+	<h2 class="text-center">My Cart</h2>
 
 	<div class="row">
-	  <% @line_items.each do |line_item| %>
-			<div class="col-md-3">
-		    <div class="well">
-		      <li><%= line_item.product.name %></li>
-			    <li><%= number_to_currency line_item.product.price %></li>
-			    <li>Qty: <%= line_item.quantity %></li>
-			    <li>Subtotal: <%= number_to_currency line_item.line_item_total %></li>
-		    </div>
-		  </div>
-	  <% end %>
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+		  <% @line_items.each do |line_item| %>
+			    <div class="well text-center">
+			      <%= line_item.product.name %>
+			      <br>
+				    <%= line_item.quantity %> * <%= number_to_currency line_item.product.price %> = <%= number_to_currency line_item.line_item_total %>
+
+				    <%= form_tag edit_line_item_path do %>
+							<%= hidden_field_tag :id, line_item.id %>
+							<%= number_field_tag :quantity, line_item.quantity, max: line_item.product.quantity %>
+							<%= submit_tag "Edit #{line_item.product.name} Quantity", class: 'btn btn-primary' %>
+						<% end %>	
+						<p><%= link_to "Delete Cart Item", delete_line_item_path(id: line_item.id), class: 'btn btn-danger' %></p>
+			    </div>
+		  <% end %>
+	  </div>
 	</div>
 
-	<div class="row">
-	  <%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success" %>
+	<div class="row text-center">
+	  <%= link_to "", checkout_path, class: "fa-3x fa fa-arrow-circle-o-right", style: "color: white" %>
 	</div>
 </div>

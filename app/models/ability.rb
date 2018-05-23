@@ -6,7 +6,7 @@ class Ability
     #
     #   user ||= User.new # guest user (not logged in)
     if user.admin?
-        can :manage, Product
+        can :manage, :all
     elsif user.guest?
         can :show, Product
     #   else

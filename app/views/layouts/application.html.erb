@@ -22,17 +22,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to "Home", root_path, class: "navbar-brand" %>
+          <%= link_to "", root_path, class: "fa-2x fa fa-home navbar-brand" %>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-
-            <li>
-              <a href="#">Link</a>
-            </li>
-
+            
             <!-- Categories -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
@@ -53,6 +49,12 @@
                   <li><%= link_to 'All', root_path %></li>
               </ul>
             </li>
+
+            <% if user_signed_in? && current_user.role == "admin" %>
+            <li>
+              <%= link_to "Admin Users Page", users_path %>
+            </li>
+            <% end %>
 
           </ul>
 
@@ -76,7 +78,6 @@
     </nav>
     <!-- Navbar End -->
 
-
     <div class="container">
       <% if alert %>
         <h5><%= alert %></h5>
@@ -85,6 +86,6 @@
     </div>
 
     <%= yield %>
-    
+
   </body>
 </html>

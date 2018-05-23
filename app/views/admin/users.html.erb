@@ -1,0 +1,20 @@
+<h1 class="text-center">All Users</h1>
+
+<div class="container">
+	<% @users.each do |user| %>
+		<div class="row">
+			<div class="well">
+				<p>User: <%= user.email %></p>
+				<p>Role: <%= user.role %></p>
+				<p>Last Sign In: <%= time_ago_in_words user.last_sign_in_at %></p>
+
+				<%= form_tag edit_user_path do %>
+					<%= hidden_field_tag :id, user.id %>
+					<%= select_tag(:role, options_for_select(["admin", "guest"]), prompt: "Please select") %>
+					<%= submit_tag "Edit Role" %>
+				<% end %>
+
+			</div>
+		</div>
+	<% end %>
+</div>

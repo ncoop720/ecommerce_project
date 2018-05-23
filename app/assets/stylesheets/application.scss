@@ -26,7 +26,15 @@
 
 body {
 	background: $c1;
+}
+
+h1, h2, h3, h4, h5 {
 	color: white;
+}
+
+a:hover {
+	background: inherit;
+	// text-decoration: none;
 }
 
 .jumbotron {
@@ -50,7 +58,7 @@ body {
 }
 
 .well a:hover {
-	background-color: $c1;
+	background-color: inherit;
 }
 
 .navbar {
@@ -59,13 +67,28 @@ body {
 }
 
 .navbar-default .navbar-brand {
-    color: white;
+  color: white;
 }
 
 .navbar-default .navbar-nav li a {
-    color: white;
+  color: white;
+}
+
+.navbar-default .navbar-nav li a:hover {
+	background: white;
+  color: $c3;
 }
 
 .dropdown-menu {
 	background-color: $c3;
 }
+
+
+
+
+
+
+
+
+
+

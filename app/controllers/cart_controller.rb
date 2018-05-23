@@ -33,4 +33,19 @@ class CartController < ApplicationController
 
   	line_items.destroy_all
   end
+
+  def edit_line_item
+    line_item = LineItem.find(params[:id])
+     price = line_item.product.price
+     line_item.update(quantity: params[:quantity], line_item_total: params[:quantity].to_f * price)
+
+     redirect_back(fallback_location: root_path)  
+  end  
+
+  def delete_line_item
+   line_item = LineItem.find(params[:id].to_i)
+   line_item.destroy
+   redirect_back(fallback_location: root_path)
+  end 
+   
 end
