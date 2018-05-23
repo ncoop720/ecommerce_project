@@ -28,6 +28,8 @@ gem 'pry-rails'
 gem 'better_errors', group: :development
 gem 'binding_of_caller'
 gem 'carrierwave'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
 
 
 # Use CoffeeScript for .coffee assets and views
